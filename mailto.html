@@ -1,0 +1,15 @@
+<div id="details">
+    <p id="customerId">{[Customerid]@[ID]}</p>
+    <p id="address">{[Address]@[ID]}</p>
+</div#>
+<a id="mailto"
+    href="mailto:pgnatowski@microstrategy.com,bniemirka@microstrategy.com?cc=santa@north.pole&subject=urgent%20customer%20contact%20needed!%20&body=Details%3A%0D%0ACustomer%20%3A%20CUSTOMERID%0D%0AAddress%3AADDRESSID%0D%0A">Send
+    an email</a>    
+<script>
+    const customer = document.querySelector('#customerId').textContent;
+    const address = document.querySelector ('#address').textContent;
+    const mailtoForm = document.querySelector ('#mailto');
+    mailtoForm.href=mailtoForm.href.replace('CUSTOMERID',encodeURIComponent(customer)).replace('ADDRESSID',encodeURIComponent(address));
+    console.log('email generated');
+    console.log(customer,address,mailtoForm);
+</script>
